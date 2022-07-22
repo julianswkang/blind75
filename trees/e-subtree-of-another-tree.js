@@ -22,11 +22,12 @@ var isSubtree = function (root, subRoot) {
   }
 
   //checking to see if subRoot is a subTree of root
-  function dfs(node) {
+  //technically subroot is not necessary as a parameter since it should have access to subroot parameter from parent function via closure
+  function dfs(node, subRoot) {
     if (node === null) return false;
     if (compare(node, subRoot)) return true;
 
-    return dfs(node.left) || dfs(node.right);
+    return dfs(node.left, subRoot) || dfs(node.right, subRoot);
   }
 
   return dfs(root, subRoot);
