@@ -23,6 +23,8 @@ var lowestCommonAncestor = function (root, p, q) {
   ) {
     return root;
   }
+  //at this point, it meas that root.val is not between p or q
+  //will then need to move the root val to the left or right depending on if it is greater or less than p or q
   //if the root value is greater than p or greater than q, will move the root to become a smaller value
   else if (root.val > p.val || root.val > q.val) {
     return lowestCommonAncestor(root.left, p, q);
